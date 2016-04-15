@@ -9,7 +9,12 @@ namespace MicroCarSales.Web.Controllers
 {
     public class HomeController : Controller
     {
-        
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult AddUser()
         {
             var repository = new MicroCarSalesRepository();
