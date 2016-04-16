@@ -1,5 +1,6 @@
 ﻿using MicroCarSales.DataModel;
 using MicroCarSales.Repository;
+using MicroCarSales.Web.ServiceContract;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,15 @@ namespace MicroCarSales.Web.Controllers
     [RoutePrefix("api/cars")]
     public class CarController : ApiController
     {
-        // POST api/cars
+        [HttpGet]
+        [Route("")]
+        public IEnumerable<Car> List()
+        {
+            var repository = new MicroCarSalesRepository();
+            var cars = repository.Car.GetList();
+            return cars;
+        }
+
         [Route("")]
         public IHttpActionResult Post(Car car)
         {

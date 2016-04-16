@@ -25,5 +25,12 @@ namespace MicroCarSales.Web.Controllers
             var id = repository.User.CreateNew();
             return Content(id.ToString());
         }
+
+        public ActionResult AddDealer()
+        {
+            var repository = new MicroCarSalesRepository();
+            var id = repository.User.CreateDealer();
+            return Content(id.ToString());
+        }
     }
 }

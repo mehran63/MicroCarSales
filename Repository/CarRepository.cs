@@ -27,5 +27,12 @@ namespace MicroCarSales.Repository
             list.Add(car);
             return car.Id;
         }
+
+        public IEnumerable<Car> GetList()
+        {
+            var store = new JsonStore<Car>(DB);
+            var list = new BiggyList<Car>(store);
+            return list;
+        }
     }
 }
