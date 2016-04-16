@@ -103,6 +103,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Controllers\UploadCtrl.js" />
+    <Content Include="Scripts\Controllers\MicroCarSales.js" />
+    <Content Include="Scripts\FileAPI.flash.swf" />
+    <Content Include="Scripts\FileAPI.js" />
+    <Content Include="Scripts\FileAPI.min.js" />
+    <Content Include="Scripts\ng-file-upload-all.js" />
+    <Content Include="Scripts\ng-file-upload-all.min.js" />
+    <Content Include="Scripts\ng-file-upload-shim.js" />
+    <Content Include="Scripts\ng-file-upload-shim.min.js" />
+    <Content Include="Scripts\ng-file-upload.js" />
+    <Content Include="Scripts\ng-file-upload.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -110,6 +121,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -121,6 +133,9 @@
     <Content Include="packages.config" />
     <Content Include="App_Data\DB\users.json" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AddCar.cshtml" />
+    <Content Include="Views\Home\CarList.cshtml" />
+    <Content Include="Views\Home\AddImages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,11 +145,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\Car\" />
+    <Folder Include="Views\Dealer\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{f329b8d3-c4e2-42e1-9c01-61235b5f7172}</Project>
       <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{cbe87b9c-7360-4993-a016-688ba8067c7e}</Project>
+      <Name>DataModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{c8550ff6-4ffd-4773-94e8-3d3f6d0f47f0}</Project>
@@ -156,7 +177,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2428</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2428/</IISUrl>
+          <IISUrl>http://localhost:6666/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:6666/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

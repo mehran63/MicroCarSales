@@ -10,10 +10,14 @@ namespace MicroCarSales.Web.Controllers
     public class HomeController : Controller
     {
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() { return View(); }
+
+        public ActionResult AddCar() { return View(); }
+
+        public ActionResult CarList() { return View(); }
+
+        public ActionResult AddImages() { return View(); }
+
 
         public ActionResult AddUser()
         {

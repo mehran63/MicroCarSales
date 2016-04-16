@@ -5,13 +5,34 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app="microCarSales">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Micro CarSales</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script>
+        angular.module("microCarSales", ["ngRoute", "ui.bootstrap", "ngFileUpload"])
+        .config(function ($routeProvider) {
+            $routeProvider.when("/addImages", {
+                templateUrl: "addImages"
+            });
+            $routeProvider.when("/addCar", {
+                templateUrl: "addCar"
+            });
+            $routeProvider.otherwise({
+                templateUrl: "carList"
+            });
+        }
+        );
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Scripts/ng-file-upload.js"></script>
+    <script src="~/Scripts/Controllers/MicroCarSales.js"></script>
+    <script src="~/Scripts/Controllers/UploadCtrl.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
-<body>
+<body ng-controller="microCarSalesCtrl">
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -20,19 +41,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <strong><a class="navbar-brand" href="#">micro CAR SALES</a></strong>
+                <strong><a class="navbar-brand" href="#"><sub>micro</sub> CAR SALES</a></strong>
             </div>
             <div class="navbar-collapse collapse" collapse="navbarProperties.isCollapsed">
                 <ul class="nav navbar-nav">
                     <li><a href="#">Home</a></li>
                     <li><a href="/routeTwo">My Stock</a></li>
-                    <li><a href="/routeThree">Add Car</a></li>
+                    <li><a href="#/addCar">Add Car</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @*<li class="navbar-text">
-                        <b>u@u.com</b>
-                        Welcome!
-                    </li>*@
+                            <b>u@u.com</b>
+                            Welcome!
+                        </li>*@
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">Register</a></li>
                 </ul>
@@ -40,25 +61,9 @@
         </div>
     </div>
     <div class="container mainContent">
-        <div class="row">
-            <div class="well">
-                <h3>
-                    <strong>Car 1</strong>
-                    <span class="pull-right label label-primary">
-                        {{0 | currency}}
-                    </span>
-                </h3>
-                <span class="lead">description</span>
-            </div>
-            <div class="pull-right btn-group">
-                <a class="btn btn-default">
-                    1
-                </a>
-            </div>
-        </div>
+        <ng-view />
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+
     <style>
         .mainContent {
             margin-top: 60px;

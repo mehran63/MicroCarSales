@@ -13,9 +13,13 @@ namespace MicroCarSales.Repository
         private JsonDbCore _db = new JsonDbCore(HttpRuntime.AppDomainAppPath + "/App_Data", "DB");
 
         public UserRepository User { get; set; }
+
+        public CarRepository Car { get; set; }
+
         public MicroCarSalesRepository()
         {
             User = new UserRepository(_db);
+            Car = new CarRepository(_db);
         }
     }
 }

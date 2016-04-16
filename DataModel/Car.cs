@@ -10,7 +10,9 @@ namespace MicroCarSales.DataModel
     {
         public int Id { get; set; }
 
-        public short ModelId { get; set; }
+        public string Make { get; set; }
+
+        public string Model { get; set; }
 
         public short Year { get; set; }
 
@@ -19,9 +21,5 @@ namespace MicroCarSales.DataModel
         public int DealerUserId { get; set; }
 
         public string Description { get; set; }
-
-        byte[] PhotoBytes { get; set; }
-
-        string PhotoExt { get; set; }
     }
 }

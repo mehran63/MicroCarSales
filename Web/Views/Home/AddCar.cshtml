@@ -1,0 +1,74 @@
+﻿<style>
+    .ng-invalid {
+        background-color: lightpink;
+    }
+
+    .ng-valid {
+        background-color: lightgreen;
+    }
+
+    span.error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<h2>Add Car</h2>
+<form name="carDetailsForm" novalidate>
+    <div class="well">
+        <h3>Car Specification Form</h3>
+
+        <div class="form-group">
+            <label>Make</label>
+            <input name="Make" class="form-control"
+                   ng-model="data.carDetails.Make" required />
+            <span class="error" ng-show="carDetails.Make.$error.required">
+                Please enter Make
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Model</label>
+            <input name="Model" class="form-control"
+                   ng-model="data.carDetails.Model" required />
+            <span class="error" ng-show="carDetails.Model.$error.required">
+                Please enter Model
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Year</label>
+            <input name="Year" class="form-control"
+                   ng-model="data.carDetails.Year" required type="number" min="1900" max="2050" />
+            <span class="error" ng-show="carDetails.Year.$error.required">
+                Please enter Year
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input name="Price" class="form-control"
+                   ng-model="data.carDetails.Price" required type="number" min="0" max="1000000" />
+            <span class="error" ng-show="carDetails.Price.$error.required">
+                Please enter Price
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="Description" class="form-control" rows="5"
+                      ng-model="data.carDetails.Description" maxlength="500"></textarea>
+            <span class="error" ng-show="carDetails.Description.$error.required">
+                Please enter Description
+            </span>
+        </div>
+
+        <div class="text-center">
+            <button ng-disabled="carDetails.$invalid"
+                    ng-click="addCar(data.carDetails)"
+                    class="btn btn-primary">
+                Add Car
+            </button>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,12 @@
+﻿<h2>Add Car Images</h2>
+<div class="well">
+    <div ng-controller="UploadCtrl">
+        <div class="form-group">
+            <label for="newPhotos">Select car photos to upload:</label>
+            <button ngf-select="uploadFiles($files)" multiple
+                    accept="image/*" name="newPhotos">
+                Select Files
+            </button>
+        </div>
+    </div>
+</div>
