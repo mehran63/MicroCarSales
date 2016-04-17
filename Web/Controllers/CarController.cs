@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Hosting;
 using System.Web.Http;
 
 namespace MicroCarSales.Web.Controllers
@@ -39,8 +40,7 @@ namespace MicroCarSales.Web.Controllers
         [Route("{id:int}/images")]
         public string UploadImages(int id)
         {
-            string path = "";
-            path = System.Web.Hosting.HostingEnvironment.MapPath($"~/App_Data/DB/CarImages/Car{id}");
+            string path = HostingEnvironment.MapPath($"~/CarImages/Car{id}/");
             Directory.CreateDirectory(path);
 
             System.Web.HttpFileCollection httpFileCollection = System.Web.HttpContext.Current.Request.Files;
@@ -51,7 +51,7 @@ namespace MicroCarSales.Web.Controllers
 
                 if (hpf.ContentLength > 0)
                 {
-                    hpf.SaveAs(path + "/" + Path.GetFileName(hpf.FileName));
+                    hpf.SaveAs(path + Path.GetFileName(hpf.FileName));
                 }
             }
 

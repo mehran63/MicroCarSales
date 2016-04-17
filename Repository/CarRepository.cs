@@ -3,16 +3,18 @@ using Biggy.Data.Json;
 using MicroCarSales.DataModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Hosting;
 
 namespace MicroCarSales.Repository
 {
     public class CarRepository
     {
-        public JsonDbCore DB { get;private set; }
+        public JsonDbCore DB { get; private set; }
         internal CarRepository(JsonDbCore db)
         {
             DB = db;
@@ -33,6 +35,25 @@ namespace MicroCarSales.Repository
             var store = new JsonStore<Car>(DB);
             var list = new BiggyList<Car>(store);
             return list;
+        }
+
+        public Car Get(int id)
+        {
+            var store = new JsonStore<Car>(DB);
+            var list = new BiggyList<Car>(store);
+            return list.FirstOrDefault(c => c.Id == id);
+        }
+
+        public string[] GetImageFileNames(int id)
+        {
+            var folderPath = HostingEnvironment.MapPath($"~/CarImages/Car{id}/");
+
+            if (!Directory.Exists(folderPath))
+                return new string[] { };
+
+            return Directory.GetFiles(folderPath)
+                                     .Select(path => Path.GetFileName(path))
+                                     .ToArray();
         }
     }
 }

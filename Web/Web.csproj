@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContract\CarListItemDto.cs" />
+    <Compile Include="ViewModels\CarDetailsVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -138,6 +139,7 @@
     <Content Include="Views\Home\AddCar.cshtml" />
     <Content Include="Views\Home\CarList.cshtml" />
     <Content Include="Views\Home\AddImages.cshtml" />
+    <Content Include="Views\Home\CarDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

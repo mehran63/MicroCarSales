@@ -16,6 +16,11 @@
             $routeProvider.when("/addImages", {
                 templateUrl: "addImages"
             });
+            $routeProvider.when("/CarDetails/:Id", {
+                templateUrl: function (params) {
+                    return "CarDetails/" + params.Id;
+                }
+            });
             $routeProvider.when("/addCar", {
                 templateUrl: "addCar"
             });

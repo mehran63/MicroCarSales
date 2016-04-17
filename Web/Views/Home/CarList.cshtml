@@ -2,7 +2,7 @@
     <div class="well col-md-6"
          ng-repeat="item in data.cars">
         <h3>
-            <a><strong>{{item.Make}} {{item.Model}}</strong></a>
+            <a ng-href="#/CarDetails/{{item.Id}}"><strong>{{item.Make}} {{item.Model}}</strong></a>
             <span class="pull-right label label-primary">
                 {{item.Price | currency}}
             </span>
